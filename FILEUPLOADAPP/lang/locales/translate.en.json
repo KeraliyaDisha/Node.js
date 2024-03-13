@@ -1,0 +1,6 @@
+{
+    "LOCAL_SERVER":"file uploaded to local server successfully",
+    "FORMAT":"file format is not supported",
+    "FAIL":"fail to upload file",
+    "UPLOAD":"{{name}} uploaded successfully"
+}
