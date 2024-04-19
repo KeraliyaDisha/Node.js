@@ -1,0 +1,54 @@
+const { body } = require("express-validator");
+const db = require("../../models/index");
+const User = db.User;
+const userValidate = {};
+
+userValidate.signUp = [
+  body("userName")
+    .trim()
+    .notEmpty()
+    .withMessage(translate("REQUIRED", { name: "userName" }))
+    .bail()
+    .matches(/^[a-z A-Z 0-9 ]*$/)
+    .withMessage(translate("ONLY_CHARACTERS")),
+  body("email")
+    .trim()
+    .notEmpty()
+    .withMessage(translate("REQUIRED", { name: "email" }))
+    .bail()
+    .isEmail()
+    .withMessage(translate("VALID"))
+    .bail()
+    .custom(async (email) => {
+      let user = await User.findOne({ where: { email: email } });
+      if (user) {
+        throw new Error(translate("EXISTS", { name: "email Id" }));
+      }
+    }),
+  body("password")
+    .trim()
+    .notEmpty()
+    .withMessage(translate("REQUIRED", { name: "password" }))
+    .bail()
+    .isStrongPassword()
+    .withMessage(translate("STRONG_PASSWORD")),
+];
+
+userValidate.login = [
+  body("email")
+    .trim()
+    .notEmpty()
+    .withMessage(translate("REQUIRED", { name: "email" }))
+    .bail()
+    .isEmail()
+    .withMessage(translate("VALID")),
+  body("password")
+    .trim()
+    .notEmpty()
+    .withMessage(translate("REQUIRED", { name: "password" }))
+    .bail()
+    .isStrongPassword()
+    .withMessage(translate("STRONG_PASSWORD")),
+];
+
+module.exports = userValidate;

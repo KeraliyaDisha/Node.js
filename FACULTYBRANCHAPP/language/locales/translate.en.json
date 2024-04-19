@@ -1,0 +1,23 @@
+{
+    "REGISTER": "Register successfully",
+    "LOGIN": "logged in successfully",
+    "INCORRECT":"password incorrect",
+    "NOT_FOUND":"{{name}} not found",
+    "LOGIN_FAILURE":"login failure",
+    "REQUIRED":"{{name}} is required",
+    "VALID":"please enter valid email id",
+    "STRONG_PASSWORD":"please use strong password",
+    "EXISTS":"{{name}} is already exists",
+    "ONLY_CHARACTERS":"Only characters are allowed with white spaces",
+    "CREATE":"{{name}} created successfully",
+    "GET":"{{name}} fetched successfully",
+    "UPDATE":"Update successfully",
+    "DELETE":"Deleted successfully",
+    "GETBYID":"{{name}} fetched successfully by code",
+    "LENGTH":"maximum length is {{num}}",
+    "ID":"pass the product id",
+    "TOKEN":"token missing",
+    "INVALID":"token invalid",
+    "VERIFY":"something went wrong, while verifying token",
+    "ERROR":"internal server error"
+}
